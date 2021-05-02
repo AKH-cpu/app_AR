@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     View arrayView[];
     ViewRenderable name_animal;
 
-    int selected = 1; // Default bear
+    int selected = 0; // Default bear
 
 
 
@@ -191,72 +191,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void createModel(AnchorNode anchorNode, int selected) {
-        if(selected == 1){
+        if(selected == 0){
             TransformableNode bear = new TransformableNode(arFragment.getTransformationSystem());
             bear.setParent(anchorNode);
             bear.setRenderable(bearRenderable);
             bear.select();
-        } else if(selected == 2){
+        } else if(selected == 1){
             TransformableNode cat = new TransformableNode(arFragment.getTransformationSystem());
             cat.setParent(anchorNode);
             cat.setRenderable(catRenderable);
             cat.select();
 
-        }else if(selected == 3){
+        }else if(selected == 2){
             TransformableNode dog = new TransformableNode(arFragment.getTransformationSystem());
             dog.setParent(anchorNode);
             dog.setRenderable(dogRenderable);
             dog.select();
 
-        }else if(selected == 4){
+        }else if(selected == 3){
             TransformableNode cow = new TransformableNode(arFragment.getTransformationSystem());
             cow.setParent(anchorNode);
             cow.setRenderable(cowRenderable);
             cow.select();
 
-        }else if(selected == 5){
+        }else if(selected == 4){
             TransformableNode elephant = new TransformableNode(arFragment.getTransformationSystem());
             elephant.setParent(anchorNode);
             elephant.setRenderable(elephantRenderable);
             elephant.select();
 
-        }else if(selected == 6){
+        }else if(selected == 5){
             TransformableNode ferret = new TransformableNode(arFragment.getTransformationSystem());
             ferret.setParent(anchorNode);
             ferret.setRenderable(ferretRenderable);
             ferret.select();
 
-        }else if(selected == 7){
+        }else if(selected == 6){
             TransformableNode hippoptamus = new TransformableNode(arFragment.getTransformationSystem());
             hippoptamus.setParent(anchorNode);
             hippoptamus.setRenderable(hippoptamusRenderable);
             hippoptamus.select();
 
-        }else if(selected == 8){
+        }else if(selected == 7){
             TransformableNode horse = new TransformableNode(arFragment.getTransformationSystem());
             horse.setParent(anchorNode);
             horse.setRenderable(horseRenderable);
             horse.select();
 
-        }else if(selected == 9){
+        }else if(selected == 8){
             TransformableNode koala_bear = new TransformableNode(arFragment.getTransformationSystem());
             koala_bear.setParent(anchorNode);
             koala_bear.setRenderable(koala_bearRenderable);
             koala_bear.select();
 
-        }else if(selected == 10){
+        }else if(selected == 9){
             TransformableNode lion = new TransformableNode(arFragment.getTransformationSystem());
             lion.setParent(anchorNode);
             lion.setRenderable(lionRenderable);
             lion.select();
 
-        }else if(selected == 11){
+        }else if(selected == 10){
             TransformableNode reindeer = new TransformableNode(arFragment.getTransformationSystem());
             reindeer.setParent(anchorNode);
             reindeer.setRenderable(reindeerRenderable);
             reindeer.select();
 
-        }else if(selected == 12){
+        }else if(selected == 11){
             TransformableNode wolverine = new TransformableNode(arFragment.getTransformationSystem());
             wolverine.setParent(anchorNode);
             wolverine.setRenderable(wolverineRenderable);
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setClickListener() {
-        for(int i =0; i<=arrayView.length; i++){
+        for(int i =0; i<arrayView.length; i++){
             arrayView[i].setOnClickListener(this);
         }
     }
@@ -280,23 +280,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.bear) {selected = 1; setBackground(v.getId());}
-        else if(v.getId() == R.id.cat) {selected = 2; setBackground(v.getId());}
-        else if(v.getId() == R.id.dog) {selected = 3; setBackground(v.getId());}
-        else if(v.getId() == R.id.cow) {selected = 4; setBackground(v.getId());}
-        else if(v.getId() == R.id.elephant) {selected = 5; setBackground(v.getId());}
-        else if(v.getId() == R.id.ferret) {selected = 6; setBackground(v.getId());}
-        else if(v.getId() == R.id.hippopotamus) {selected = 7; setBackground(v.getId());}
-        else if(v.getId() == R.id.horse) {selected = 8; setBackground(v.getId());}
-        else if(v.getId() == R.id.koala_bear) {selected = 9; setBackground(v.getId());}
-        else if(v.getId() == R.id.lion) {selected = 10; setBackground(v.getId());}
-        else if(v.getId() == R.id.reindeer) {selected = 11; setBackground(v.getId());}
-        else if(v.getId() == R.id.wolverine) {selected = 12; setBackground(v.getId());}
+        if(v.getId() == R.id.bear) {selected = 0; setBackground(v.getId());}
+        else if(v.getId() == R.id.cat) {selected = 1; setBackground(v.getId());}
+        else if(v.getId() == R.id.dog) {selected = 2; setBackground(v.getId());}
+        else if(v.getId() == R.id.cow) {selected = 3; setBackground(v.getId());}
+        else if(v.getId() == R.id.elephant) {selected = 4; setBackground(v.getId());}
+        else if(v.getId() == R.id.ferret) {selected = 5; setBackground(v.getId());}
+        else if(v.getId() == R.id.hippopotamus) {selected = 6; setBackground(v.getId());}
+        else if(v.getId() == R.id.horse) {selected = 7; setBackground(v.getId());}
+        else if(v.getId() == R.id.koala_bear) {selected = 8; setBackground(v.getId());}
+        else if(v.getId() == R.id.lion) {selected = 9; setBackground(v.getId());}
+        else if(v.getId() == R.id.reindeer) {selected = 10; setBackground(v.getId());}
+        else if(v.getId() == R.id.wolverine) {selected = 11; setBackground(v.getId());}
 
     }
 
     private void setBackground(int id) {
-        for(int i =0; i<=arrayView.length; i++){
+        for(int i =0; i<arrayView.length; i++){
             if (arrayView[i].getId() == id) arrayView[i].setBackgroundColor(Color.parseColor("#80333639"));
             else arrayView[i].setBackgroundColor(Color.TRANSPARENT);
         }
