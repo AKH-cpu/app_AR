@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initializing ArFragment
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.sceneform_ux_fragment);
 
-        // View
+        // store images into variables
         bear = (ImageView)findViewById(R.id.bear);
         cat = (ImageView)findViewById(R.id.cat);
         cow = (ImageView)findViewById(R.id.cow);
@@ -79,7 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
+    /**
+     * setupModel method create renderable models, then store them in a variable.
+     */
     private void setupModel() {
         ModelRenderable.builder()
                 .setSource(this, R.raw.bear)
@@ -190,6 +193,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 );
     }
 
+    /**
+     * method to add renderable object to the environment.
+     * @param anchorNode node in which the object will be rendered
+     * @param selected selected animal to add
+     */
     private void createModel(AnchorNode anchorNode, int selected) {
         if(selected == 0){
             TransformableNode bear = new TransformableNode(arFragment.getTransformationSystem());
@@ -265,12 +273,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * setUp Click event for each image, the method which will be called is in this class (onClick)
+     * method.
+     */
     private void setClickListener() {
         for(int i =0; i<arrayView.length; i++){
             arrayView[i].setOnClickListener(this);
         }
     }
 
+    /**
+     * load animals images into the view array
+     */
     private void setArrayView() {
         arrayView = new View[]{
                 bear,cat, cow, dog,elephant, ferret,hippoptamus, horse, koala_bear, lion, reindeer,
@@ -278,6 +293,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
     }
 
+    /**
+     * called when an animal image is clicked.
+     * and change the background of the image container.
+     * @param v clicked View
+     */
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.bear) {selected = 0; setBackground(v.getId());}
@@ -295,6 +315,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * method to change the background of image container.
+     * @param id id of clicked image
+     */
     private void setBackground(int id) {
         for(int i =0; i<arrayView.length; i++){
             if (arrayView[i].getId() == id) arrayView[i].setBackgroundColor(Color.parseColor("#80333639"));
